@@ -13,3 +13,15 @@ Try running the following commands:
 - Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+
+
+### Dear client
+
+In mode/delivery you will find the three .sql files with the requested querys. 
+
+Just some additional comments: 
+
+for the request number 3:
+
+No gender information were present in the London database,
+the database may contain some error since it looks like that people older than 100 years are renting bikes

@@ -7,9 +7,24 @@ with Austin as (
 
 
     order by period  
+),
+
+New_York as (
+    Select  sum(tripduration) as tot_time, usertype ,EXTRACT(YEAR FROM starttime) as period,
+
+    from `bigquery-public-data.new_york_citibike.citibike_trips`
+
+    GROUP BY usertype, period
+
+
+    order by period  
 )
 
 
-Select max(tot_minutes)as maax, subscriber_type, 
+Select max(tot_minutes) as maax, period , max(subscriber_type) as subscription
 From Austin
-group by subscriber_type,period
+group by period;
+
+Select max(tot_time) as maax, period , max(usertype) as subscription
+From New_York
+group by period

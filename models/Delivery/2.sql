@@ -1,21 +1,15 @@
 with Austin as (
-    Select  EXTRACT(YEAR FROM start_time) as period, MAX(COUNT(distinct subscriber_type))
+    Select  sum(duration_minutes) as tot_minutes, subscriber_type ,EXTRACT(YEAR FROM start_time) as period,
 
     from `bigquery-public-data.austin_bikeshare.bikeshare_trips`
 
-    GROUP BY period
+    GROUP BY subscriber_type, period
 
-    order by period DESC 
-),
-New_York as (
-    Select  EXTRACT(YEAR FROM starttime) as period, count(start_station_id) as total_rides,  start_station_name,
 
-    FROM `bigquery-public-data.new_york_citibike.citibike_trips`
-
-    WHERE starttime >= '2018-04-30T23:59:59.606000'
-
-    GROUP BY start_station_name
-
-    order by total_rides DESC 
+    order by period  
 )
-Select * From Austin
+
+
+Select max(tot_minutes)as maax, subscriber_type, 
+From Austin
+group by subscriber_type,period

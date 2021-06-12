@@ -22,21 +22,23 @@ New_York as (
     GROUP BY start_station_name
 
     order by total_rides DESC 
+),
+London as (
+    Select count(rental_id) as total_rides, start_station_name,
+
+    FROM `bigquery-public-data.london_bicycles.cycle_hire`
+
+    Where start_date >= '2017-05-13'
+
+    GROUP BY start_station_name
+
+    order by total_rides DESC 
+
 )
-#London as (
- #   Select count(rental_id) as total_rides, start_station_name,
-
-  #  FROM `bigquery-public-data.london_bicycles.cycle_hire`
-
-   # Where start_date >= '2017-05-13'
-
-    #GROUP BY start_station_name
-
-    #order by total_rides DESC 
-
-#)
 Select * FROM Austin
 UNION ALL
 Select * from New_York
+UNION ALL
+Select * from London
 order by total_rides DESC  
 limit 20

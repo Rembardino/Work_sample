@@ -21,6 +21,7 @@ woman as (
      
      
 )
-Select female,male,birth_year  from woman
+Select female,male,(2018-birth_year) as age  from woman
 join  man
 on woman.birth_year=man.period
+order by age DESC

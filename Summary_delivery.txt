@@ -1,0 +1,11 @@
+Dear client,
+
+In mode/delivery you will find the three .sql files with the requested querys. 
+
+Just some additional comments: 
+
+for the request number 3:
+
+No gender information were present in the London database,
+the database may contain some error since it looks like that people older than 100 years are renting bikes
+
